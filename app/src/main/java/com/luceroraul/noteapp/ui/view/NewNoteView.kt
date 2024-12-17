@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.luceroraul.noteapp.ui.CustomScaffold
 
 @Preview
 @Composable
@@ -36,18 +37,12 @@ private fun PreviewNewNoteView() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NewNoteView(modifier: Modifier = Modifier) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text("Edición de nota", color = MaterialTheme.colorScheme.primary)
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
-            )
-        }
+    CustomScaffold(
+        title = "Nueva de nota",
+        modifier = modifier.padding(horizontal = 8.dp)
     ) {
         Column(
-            modifier = modifier.padding(it).padding(horizontal = 8.dp).fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween
         ) {
@@ -65,5 +60,6 @@ fun NewNoteView(modifier: Modifier = Modifier) {
                 Button(onClick = {}, modifier = mod) { Text("Guardar") }
             }
         }
+
     }
 }
